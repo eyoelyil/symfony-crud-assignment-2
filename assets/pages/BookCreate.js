@@ -49,11 +49,11 @@ function BookCreate() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Create New Project</h2>
+        <h2 className="text-center mt-5 mb-3">Add a new Book</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
-              View All Projects
+              View All Bookes
             </Link>
           </div>
           <div className="card-body">
@@ -85,16 +85,16 @@ function BookCreate() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="author">Author</label>
+                <label htmlFor="content">Content</label>
                 <textarea
-                  value={author}
+                  value={content}
                   onChange={(event) => {
-                    setAuthor(event.target.value);
+                    setContent(event.target.value);
                   }}
                   className="form-control"
-                  id="author"
+                  id="content"
                   rows="3"
-                  name="author"
+                  name="content"
                 ></textarea>
               </div>
               <div className="form-group">

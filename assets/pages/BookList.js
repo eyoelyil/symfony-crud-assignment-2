@@ -59,7 +59,7 @@ function BookList() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Symfony Book Manager</h2>
+        <h2 className="text-center mt-5 mb-3">Book Management</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-primary" to="/create">
