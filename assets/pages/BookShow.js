@@ -5,7 +5,12 @@ import axios from "axios";
 
 function BookShow() {
   const [id, setId] = useState(useParams().id);
-  const [book, setBook] = useState({ name: "", description: "" });
+  const [book, setBook] = useState({
+    title: "",
+    author: "",
+    content: "",
+    genre: "",
+  });
   useEffect(() => {
     axios
       .get(`/api/book/${id}`)
@@ -33,6 +38,10 @@ function BookShow() {
             <p>{book.title}</p>
             <b className="text-muted">Author:</b>
             <p>{book.author}</p>
+            <b className="text-muted">Content:</b>
+            <p>{book.content}</p>
+            <b className="text-muted">Genre:</b>
+            <p>{book.genre}</p>
           </div>
         </div>
       </div>

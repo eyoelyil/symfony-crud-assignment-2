@@ -94,13 +94,13 @@ class BookController extends AbstractController
             return $this->json('No book found for id' . $id, 404);
         }
          
-        $content = json_decode($request->getContent());
+        $con = json_decode($request->getContent());
          
 
-        $book->setTitle($content->title);
-        $book->setAuthor($content->author);
-        $book->setContent($content->content);
-        $book->setGenre($content->genre);
+        $book->setTitle($con->title);
+        $book->setAuthor($con->author);
+        $book->setContent($con->content);
+        $book->setGenre($con->genre);
         $entityManager->flush();
   
         $data =  [

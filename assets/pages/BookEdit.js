@@ -8,6 +8,8 @@ function BookEdit() {
   const [id, setId] = useState(useParams().id);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const [content, setContent] = useState("");
+  const [genre, setGenre] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
@@ -17,6 +19,8 @@ function BookEdit() {
         let book = response.data;
         setTitle(book.title);
         setAuthor(book.author);
+        setContent(book.content);
+        setGenre(book.genre);
       })
       .catch(function (error) {
         Swal.fire({
@@ -34,6 +38,8 @@ function BookEdit() {
       .patch(`/api/book/${id}`, {
         title: title,
         author: author,
+        content: content,
+        genre: genre,
       })
       .then(function (response) {
         Swal.fire({
@@ -58,7 +64,7 @@ function BookEdit() {
   return (
     <Layout>
       <div className="container">
-        <h2 className="text-center mt-5 mb-3">Edit book</h2>
+        <h2 className="text-center mt-5 mb-3">Edit book again</h2>
         <div className="card">
           <div className="card-header">
             <Link className="btn btn-outline-info float-right" to="/">
@@ -77,21 +83,47 @@ function BookEdit() {
                   type="text"
                   className="form-control"
                   id="title"
-                  title="title"
+                  name="title"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="author">Author</label>
-                <textarea
-                  value={author}
+                <label htmlFor="name">Author</label>
+                <input
                   onChange={(event) => {
                     setAuthor(event.target.value);
                   }}
+                  value={author}
+                  type="text"
                   className="form-control"
                   id="author"
-                  rows="3"
                   name="author"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="content">Content</label>
+                <textarea
+                  value={content}
+                  onChange={(event) => {
+                    setContent(event.target.value);
+                  }}
+                  className="form-control"
+                  id="content"
+                  rows="3"
+                  name="content"
                 ></textarea>
+              </div>
+              <div className="form-group">
+                <label htmlFor="genre">Genre</label>
+                <input
+                  onChange={(event) => {
+                    setGenre(event.target.value);
+                  }}
+                  value={genre}
+                  type="text"
+                  className="form-control"
+                  id="genre"
+                  name="genre"
+                />
               </div>
               <button
                 disabled={isSaving}

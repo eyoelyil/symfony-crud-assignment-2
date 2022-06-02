@@ -73,6 +73,19 @@ function BookCreate() {
               </div>
               <div className="form-group">
                 <label htmlFor="author">Author</label>
+                <input
+                  onChange={(event) => {
+                    setAuthor(event.target.value);
+                  }}
+                  value={author}
+                  type="text"
+                  className="form-control"
+                  id="author"
+                  name="author"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="author">Author</label>
                 <textarea
                   value={author}
                   onChange={(event) => {
@@ -83,19 +96,6 @@ function BookCreate() {
                   rows="3"
                   name="author"
                 ></textarea>
-              </div>
-              <div className="form-group">
-                <label htmlFor="content">Content</label>
-                <input
-                  onChange={(event) => {
-                    setContent(event.target.value);
-                  }}
-                  value={content}
-                  type="text"
-                  className="form-control"
-                  id="content"
-                  name="content"
-                />
               </div>
               <div className="form-group">
                 <label htmlFor="genre">Genre</label>
